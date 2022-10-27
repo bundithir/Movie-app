@@ -9,7 +9,8 @@ import Signin from './Components/Signin';
 function App() {
   const [Movie , SetMovie] = useState([]);
   const [Search , SetSearch] = useState('');
-  const [Route , SetRoute] = useState('signin')
+  const [Route , SetRoute] = useState('signin');
+
 
   useEffect(()=>{
     if(Search){
@@ -24,8 +25,10 @@ function App() {
   }
 
   const OnRoute = (route)=>{
+    SetSearch('');
     SetRoute(route);
   }
+
 
   return (
     <div className='bg-[#18191A] min-h-screen'>
@@ -33,7 +36,11 @@ function App() {
       {Route === 'home'?
         <div>
             <Field OnSearch ={OnSearch}/>
-            <Cardlist Movies={Movie}/>
+            {Search?
+              <Cardlist Movies={Movie}/>
+              :
+              <h1 className='text-[#E4E6EB] text-center mt-[9rem] text-5xl font-bold'>Hi!!! you are searching</h1>
+            }
           </div>
         
         :

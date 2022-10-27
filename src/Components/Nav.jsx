@@ -6,7 +6,7 @@ function Nav (props){
                 
                     {props.Route==='home'?
                     <ul className="flex gap-[2rem]">
-                        <li className="cursor-pointer">#Peepi</li>
+                        <li className="">#User</li>
                         <li className="cursor-pointer"onClick={() => props.OnRoute('signin')}>Sign out</li>
                     </ul>
                     :

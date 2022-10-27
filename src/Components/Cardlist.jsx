@@ -1,8 +1,9 @@
 import Card from "./Card";
 
 function Cardlist (props){
-    const CardComponents = props.Movies.map((movie) =>
+    const CardComponents = props.Movies.map((movie,i) =>
         <Card 
+        key={i}
         title={movie.original_title}
         detail={movie.overview}
         poster={movie.poster_path}
