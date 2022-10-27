@@ -3,11 +3,13 @@ import './App.css';
 import Cardlist from './Components/Cardlist';
 import Field from './Components/Field';
 import Nav from './Components/Nav';
+import Register from './Components/Register';
 import Signin from './Components/Signin';
 
 function App() {
   const [Movie , SetMovie] = useState([]);
   const [Search , SetSearch] = useState('');
+  const [Route , SetRoute] = useState('signin')
 
   useEffect(()=>{
     if(Search){
@@ -21,11 +23,27 @@ function App() {
     SetSearch(e.target.value)
   }
 
+  const OnRoute = (route)=>{
+    SetRoute(route);
+  }
+
   return (
     <div className='bg-[#18191A] min-h-screen'>
-      <Nav />
-      <Field OnSearch ={OnSearch}/>
-      <Cardlist Movies={Movie}/>
+      <Nav Route={Route} OnRoute={OnRoute}/>
+      {Route === 'home'?
+        <div>
+            <Field OnSearch ={OnSearch}/>
+            <Cardlist Movies={Movie}/>
+          </div>
+        
+        :
+        (Route === 'signin'?
+          <Signin OnRoute={OnRoute} />
+          :
+          <Register OnRoute={OnRoute}/>
+        )
+      }
+      
     </div>
   );
 }
