@@ -1,6 +1,6 @@
 {
   "name": "movie-app",
-  "homepage": "https://bundithir.github.io/Movie-app-Frontend",
+  // "homepage": "https://bundithir.github.io/Movie-app-Frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
