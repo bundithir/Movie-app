@@ -1,3 +1,5 @@
+
+
 function Nav (props){
     return(
         <div className="bg-[#242526] py-[1rem] shadow-xl text-[#E4E6EB]">
@@ -6,7 +8,7 @@ function Nav (props){
                 
                     {props.Route==='home'?
                     <ul className="flex gap-[2rem]">
-                        <li className="">#User</li>
+                        <li className="">{props.user.name}#{props.user.id}</li>
                         <li className="cursor-pointer"onClick={() => props.OnRoute('signin')}>Sign out</li>
                     </ul>
                     :
